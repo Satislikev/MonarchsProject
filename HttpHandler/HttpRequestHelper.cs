@@ -18,7 +18,7 @@ namespace MonarchsProject.HttpHandler
             try
             {
                 var stream = await httpResponse.Content.ReadAsStreamAsync();
-                var streamReader = new StreamReader(stream).ReadToEnd();
+                var streamReader = await new StreamReader(stream).ReadToEndAsync();
 
                 var json = JsonConvert.DeserializeObject<List<Monarch>>(streamReader);
 
@@ -28,6 +28,7 @@ namespace MonarchsProject.HttpHandler
             }
             catch (Exception e)
             {
+                //In real world, I usually handle IO exceptions much better
                 Console.WriteLine(e);
                 throw;
             }

@@ -10,6 +10,7 @@ namespace MonarchsProject
 {
     public static class Monarchs
     {
+        //This entry method looks very weird to me, maybe one day i understand why...
         public static async Task Main(string[] args)
         {
             //Making a call and getting the list
